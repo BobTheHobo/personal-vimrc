@@ -78,12 +78,6 @@ require('lazy').setup({
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
-    opts = {
-      popup_mappings = {
-        scroll_down = "<c-d>",
-        scroll_up = "<c-u>",
-      },
-    }
   },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -129,19 +123,17 @@ require('lazy').setup({
     'navarasu/onedark.nvim',
     priority = 1000,
     opts = {
-      style = 'deep',
-      transparent = false,
-
-      --toggle theme style--
-      toggle_style = "<leader>aa",
-      toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'},
-
-      code_style = {
-        comments = 'italic',
-      },
     },
-    config = function(_, opts)
-      require("onedark").setup(opts)
+    config = function()
+      require("onedark").setup {
+        style = 'deep',
+        transparent = true,
+
+        --toggle theme style--
+        toggle_style_key = "<leader>pp",
+        toggle_style_list = {'deep', 'warmer', 'light'},
+
+      }
       vim.cmd.colorscheme 'onedark'
     end,
   },
@@ -150,12 +142,13 @@ require('lazy').setup({
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
       },
     },
   },
@@ -221,11 +214,15 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- set encoding=utf-8
+-- set fileencoding=utf-8
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
--- Make line numbers default
+-- Make relative line numbers default
 vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -498,10 +495,10 @@ require('mason-lspconfig').setup()
 local servers = {
   -- clangd = {},
   -- gopls = {},
-  -- pyright = {},
+  pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
     Lua = {
