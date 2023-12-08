@@ -219,15 +219,15 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- winbar (shows you what file is open at the top of the window)
+vim.o.winbar = "%=%m %f %y" -- Uses same items as statusline (%= -> right align, %m -> shows modified, %f -> show file)
+
 -- tab settings
 vim.o.softtabstop = 4     -- how many columns pressing or deleting tab is worth
 vim.o.tabstop = 4         -- how many columns of whitespace \t (tab) character is worth
 vim.o.shiftwidth = 4      -- how many columns of whitespace a "level of indentation" (> or < keystrokes) is worth
 vim.o.autoindent = true;  -- automatically indent newlines
 vim.o.smartindent = true; -- works with C-like braces
-
--- set encoding=utf-8
--- set fileencoding=utf-8
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -273,15 +273,33 @@ vim.o.splitbelow = true;
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
+
+-- For the options (last {} in keymap.set):
+-- "desc=" -> Describes the function for which-key.nvim
+-- "silent=" -> Executes without showing function in statusline
+-- "expr=" -> Executes the return of a function
+
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Automatically source vimrc
 vim.keymap.set('n', '<leader>sv', ':source $MYVIMRC<CR>', { desc = 'Source vimrc' })
 
+-- Toggle search highlighting
+vim.keymap.set('n', '<F4>', ':set hls!<CR>', { desc = 'Toggle search highlighting', silent = true })
+vim.keymap.set('n', '/', ':set hlsearch<CR>/', { silent = true }) -- Turns on search highlighting on a search
+
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Move lines up and down by using <Alt-k> and <Alt-j> respectively
+vim.keymap.set('n', '<A-j>', ':m +1<CR>==', { silent = true, desc = "Moves a line down" })
+vim.keymap.set('n', '<A-k>', ':m -2<CR>==', { silent = true, desc = "Moves a line up" })
+vim.keymap.set('i', '<A-j>', '<Esc>:m +1<CR>==gi', { silent = true, desc = "Moves a line down (insert mode)" })
+vim.keymap.set('i', '<A-k>', '<Esc>:m -2<CR>==gi', { silent = true, desc = "Moves a line up (insert mode)" })
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true, desc = "Moves a line down (visual mode)" })
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true, desc = "Moves a line up (visual mode)" })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
