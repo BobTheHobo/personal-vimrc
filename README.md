@@ -26,6 +26,9 @@ Distribution Alternatives:
 Requirements:
 * Make sure to review the readmes of the plugins if you are experiencing errors. In particular:
   * [ripgrep](https://github.com/BurntSushi/ripgrep#installation) is required for multiple [telescope](https://github.com/nvim-telescope/telescope.nvim#suggested-dependencies) pickers.
+* My personal vimrm is configured for Windows, so install [cmake](https://cmake.org/)
+* Treesitter requires cc, gcc, clang, cl, or zig, so install one of them
+  * See this [stackoverflow](https://stackoverflow.com/questions/75587679/neovim-treesitter-returning-no-c-complier-error) for more details
 * See [Windows Installation](#Windows-Installation) if you have trouble with `telescope-fzf-native`
 
 Neovim's configurations are located under the following paths, depending on your OS:
