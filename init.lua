@@ -126,6 +126,7 @@ require('lazy').setup({
     opts = {
     },
     config = function()
+      vim.o.background = "light" -- this line is required to set onedark default theme to light (see #34 @ github)
       require("onedark").setup {
         style = 'light',
         transparent = true,
