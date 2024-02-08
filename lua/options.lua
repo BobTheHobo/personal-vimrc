@@ -54,4 +54,4 @@ vim.o.splitbelow = true;
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- Basically sets tabstop=2, softtabstop=2, shiftwidth=2, expandtab (Expands tabs to spaces)
--- vim: ts=2 sts=2 sw=2 et
+vim: ts=2 sts=2 sw=2 et
