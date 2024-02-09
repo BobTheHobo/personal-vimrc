@@ -30,8 +30,8 @@ vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true, desc = "Moves 
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true, desc = "Moves a line up (visual mode)" })
 
 -- Insert blank lines --
-vim.keymap.set('n', 'oo', 'o<Esc>k', { desc = "Insert blank line below" })
-vim.keymap.set('n', 'OO', 'O<Esc>j', { desc = "Insert blank line below" })
+vim.keymap.set('n', '<leader>o', 'mao<Esc>`a', { silent = true, desc = "Inserts blank line below" })
+vim.keymap.set('n', '<leader>O', 'maO<Esc>`a', { silent = true, desc = "Inserts blank line above" })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -71,4 +71,3 @@ vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap
 vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
-
