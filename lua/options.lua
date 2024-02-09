@@ -52,6 +52,20 @@ vim.o.termguicolors = true
 -- Set splits to below current window
 vim.o.splitbelow = true;
 
+-- Sets powershell to be default shell instead of cmd
+vim.o.shell = "powershell.exe"
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- Basically sets tabstop=2, softtabstop=2, shiftwidth=2, expandtab (Expands tabs to spaces)
-vim: ts=2 sts=2 sw=2 et
+-- vim: ts=2 sts=2 sw=2 et
