@@ -52,8 +52,17 @@ vim.o.termguicolors = true
 -- Set splits to below current window
 vim.o.splitbelow = true;
 
+-- Set splits to right of current window
+vim.o.splitright = true
 -- Sets powershell to be default shell instead of cmd
 vim.o.shell = "powershell.exe"
+
+-- Sets conceal level to 1 for obsidian.nvim to render checkboxes and other UI elements correctly
+vim.o.conceallevel = 2
+
+-- Turns spellcheck on for everything
+vim.o.spell = true
+vim.o.spelllang = "en"
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -68,4 +77,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- Basically sets tabstop=2, softtabstop=2, shiftwidth=2, expandtab (Expands tabs to spaces)
+-- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=2 sts=2 sw=2 et
 -- vim: ts=2 sts=2 sw=2 et
