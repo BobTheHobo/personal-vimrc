@@ -71,3 +71,14 @@ vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap
 vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
+
+-- tabs
+vim.keymap.set("n", "<A-n>", ":tabnew <CR>")
+vim.keymap.set("n", "<A-t>", ":vsplit <CR>")
+vim.keymap.set("n", "<A-w>", ":tabclose <CR>")
+vim.keymap.set("n", "<A-h>", ":tabprevious <CR>", { silent = true })
+vim.keymap.set("n", "<A-l>", ":tabnext <CR>", { silent = true })
+vim.keymap.set("n", "<A-Left>", ":tabprevious <CR>", { silent = true })
+vim.keymap.set("n", "<A-Right>", ":tabnext <CR>", { silent = true })
+vim.keymap.set("n", "<A-1>", ":tabfirst <CR>", { silent = true })
+vim.keymap.set("n", "<A-0>", ":tablast <CR>", { silent = true })
