@@ -108,3 +108,9 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+-- Ocaml setup
+require('lspconfig')['ocamllsp'].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
