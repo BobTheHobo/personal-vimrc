@@ -54,8 +54,12 @@ vim.o.splitbelow = true;
 
 -- Set splits to right of current window
 vim.o.splitright = true
--- Sets powershell to be default shell instead of cmd
-vim.o.shell = "powershell.exe"
+
+-- Sets powershell to be default shell instead of cmd for windows
+local sysname = vim.loop.os_uname().sysname
+if sysname == "Windows" then
+  vim.o.shell = "powershell.exe"
+end
 
 -- Sets conceal level to 1 for obsidian.nvim to render checkboxes and other UI elements correctly
 vim.o.conceallevel = 2
