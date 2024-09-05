@@ -115,12 +115,12 @@ require('lazy').setup({
     config = function()
       vim.o.background = "light" -- this line is required to set onedark default theme to light (see #34 @ github)
       require("onedark").setup {
-        style = 'light',
-        transparent = true,
+        style = 'deep',
+        transparent = false,
 
         --toggle theme style--
         toggle_style_key = "<leader>pp",
-        toggle_style_list = { 'deep', 'light' },
+        toggle_style_list = { 'light', 'deep' },
 
       }
       vim.cmd.colorscheme 'onedark'
@@ -193,12 +193,13 @@ require('lazy').setup({
     -- lazy = true,
     -- ft = "markdown",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-    -- event = {
-    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-    --   "BufReadPre path/to/my-vault/**.md",
-    --   "BufNewFile path/to/my-vault/**.md",
-    -- },
+    event = {
+      -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+      -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+      "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md",
+      -- "BufReadPre path/to/my-vault/**.md",
+      "BufNewFile path/to/my-vault/**.md",
+    },
     dependencies = {
       -- Required.
       "nvim-lua/plenary.nvim",
@@ -207,7 +208,8 @@ require('lazy').setup({
       workspaces = {
         {
           name = "personal",
-          path = "C:\\Users\\Viet\\Documents\\Viet's Vault",
+          -- path = "C:\\Users\\Viet\\Documents\\Viet's Vault",
+          path = "/home/viet/Documents/Viet's Vault",
         },
       },
       -- Completion of wiki links, local markdown links, and tags using nvim-cmp.
