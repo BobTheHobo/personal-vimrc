@@ -1,6 +1,7 @@
 # kickstart.nvim
 
-https://github.com/kdheepak/kickstart.nvim/assets/1813121/f3ff9a2b-c31f-44df-a4fa-8a0d7b17cf7b
+## Archive
+My vimrc has migrated to my [dotfiles](https://github.com/BobTheHobo/dotfiles) repo!
 
 ### Introduction
 
